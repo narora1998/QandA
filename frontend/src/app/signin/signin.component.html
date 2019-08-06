@@ -1,0 +1,39 @@
+<html>
+  <h1 class="text-center title">QandA</h1>
+  <div calss="outer-div">
+    <div class="form-container">
+      <div class="elements">
+        <input
+          type="email"
+          name="email"
+          class="input"
+          placeholder="Email"
+          [(ngModel)]="email"
+          required
+        />
+
+        <input
+          type="password"
+          name="password"
+          class="input"
+          placeholder="Password"
+          [(ngModel)]="password"
+          required
+        />
+
+        <br />
+        <button
+          type="button"
+          class="btn btn-primary input"
+          (click)="loginUser(email, password)"
+        >
+          Sign In
+        </button>
+        <p>
+          New to QandA?
+          <a href="http://localhost:4200/signup">Sign Up</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</html>

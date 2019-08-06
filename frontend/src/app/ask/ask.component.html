@@ -1,0 +1,58 @@
+<html>
+  <nav
+    class="navbar navbar-expand-lg navbar-light"
+    style="background-color: azure;"
+  >
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link text-primary" href="http://localhost:4200/home"
+            >Home</a
+          >
+        </li>
+
+        <li class="nav-item active">
+          <a class="nav-link" href="http://localhost:4200/ask">Ask </a>
+        </li>
+
+        <li class="nav-item active">
+          <a class="nav-link text-primary" href="http://localhost:4200/answer"
+            >Answer
+          </a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav">
+        <li class="nav-item active form-inline">
+          <a class="nav-link text-primary" href="#">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <br />
+
+  <div class="ask-question">
+    <div class="form-group">
+      <select class="form-control" name="category" [(ngModel)]="category">
+        <option selected hidden disabled>Category</option>
+        <option>Fashion</option>
+        <option>Technology</option>
+        <option>Politics</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <textarea
+        name="question"
+        [(ngModel)]="question"
+        class="form-control"
+        rows="5"
+        placeholder="Ask question here..."
+      ></textarea>
+    </div>
+    <div class="form-group">
+      <button class="btn btn-primary" (click)="askQuestion(category, question)">
+        Submit
+      </button>
+    </div>
+  </div>
+</html>
