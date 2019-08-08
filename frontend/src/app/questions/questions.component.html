@@ -4,7 +4,7 @@
       class="collapse navbar-collapse"
       id="navbarSupportedContent"
       style="border: 5px solid black;
-      margin:0%;border-radius: 10px"
+      margin:0%;border-radius: 10px;"
     >
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
@@ -40,27 +40,19 @@
         <label class="input-group-text">Read What Interests You!</label>
       </div>
       <select class="custom-select" name="filter" [(ngModel)]="filter">
+        <option selected>All</option>
         <option>Fashion</option>
         <option>Technology</option>
         <option>Politics</option>
       </select>
-      <!-- <div class="input-group-append">
-        <button
-          class="btn btn-outline-secondary btn-light input-group-text"
-          id="filterButton"
-          (click)="filterByCategory(category)"
-        >
-          Filter
-        </button>
-      </div> -->
     </div>
   </div>
 
   <div class="question-container" *ngFor="let qa of quesAnsArray">
     <div
-      class="card"
-      style="width: 40rem;"
-      *ngIf="qa.cName == filter || filter == 1"
+      class="card overflow-auto"
+      style="width: 40rem;max-height:20rem"
+      *ngIf="filter == qa.cName || filter == 'All'"
     >
       <div class="card-body">
         <h5 class="card-title text-white" style="margin: 0%">
@@ -79,13 +71,22 @@
           class="text-light"
         >
           {{ ans.answer }}
-          <button
-            class="btn btn-link"
-            style="float: right;padding-bottom: 0;padding-top: 0;"
-            (click)="editAnswer(ans.questionId, ans._id)"
-          >
-            Edit<i class="far fa-edit"></i>
-          </button>
+          <div>
+            <button
+              class="btn btn-link"
+              style="float: right;padding-bottom: 0;padding-top: 0;"
+              (click)="editAnswer(ans.questionId, ans._id)"
+            >
+              Edit<i class="far fa-edit"></i>
+            </button>
+            <button
+              class="btn btn-link"
+              style="float: right;padding-bottom: 0;padding-top: 0;"
+              (click)="deleteAnswer(ans._id)"
+            >
+              Delete<i class="far fa-delete"></i>
+            </button>
+          </div>
         </li>
       </ul>
       <div class="answer-here"></div>

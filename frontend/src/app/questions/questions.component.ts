@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ApiserviceService } from "../apiservice.service";
-import { Router } from "@angular/router";
-import { TouchSequence } from "selenium-webdriver";
+import { Router, RouterEvent, NavigationEnd } from "@angular/router";
 
 @Component({
   selector: "app-questions",
@@ -9,13 +8,15 @@ import { TouchSequence } from "selenium-webdriver";
   styleUrls: ["./questions.component.css"]
 })
 export class QuestionsComponent implements OnInit {
-  filter: any = 1;
+  filter: any = "All";
   ques: any;
   ans: any;
   quesAnsArray = [];
   answersArray = [];
 
-  constructor(private apiService: ApiserviceService, private router: Router) {
+  constructor(private apiService: ApiserviceService, private router: Router) {}
+
+  ngOnInit() {
     this.apiService.viewAllQuestions().subscribe(qData => {
       this.ques = qData;
       for (var i = this.ques.data.length - 1; i >= 0; i--) {
@@ -44,11 +45,9 @@ export class QuestionsComponent implements OnInit {
         this.answersArray.push(obj);
       }
       console.log(aData);
-      console.log(this.answersArray[2].questionId);
+      //console.log(this.answersArray[2].questionId);
     });
   }
-
-  ngOnInit() {}
 
   navigateToAnswer(qId) {
     this.router.navigate(["question", qId, "answer", "new"]);
@@ -58,8 +57,12 @@ export class QuestionsComponent implements OnInit {
     this.router.navigate(["question", qId, "answer", aId, "edit"]);
   }
 
-  // filterByCategory(category) {
-  //   this.filter = category;
-  //   console.log(this.filter);
-  // }
+  deleteAnswer(aId) {
+    this.apiService.deleteAnswer(aId).subscribe(() => {
+      console.log(aId + "was deleted");
+
+      if (window.confirm("Are you sure you want to delete this answer?")) {
+      }
+    });
+  }
 }

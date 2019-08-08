@@ -45,11 +45,19 @@ router.put("/answer/:id", function(req, res) {
     function(err, upAns) {
       if (err) res.send(err);
       else {
-        user.save();
+        //Answers.save();
         res.json({ message: "Answer Updated" });
       }
     }
   );
 });
 
+router.delete("/answer/:id/delete", function(req, res) {
+  Answers.findByIdAndDelete(req.params.id, function(err) {
+    if (err) res.send(err);
+    else {
+      res.json({ message: "Answer Deleted Successfully" });
+    }
+  });
+});
 module.exports = router;

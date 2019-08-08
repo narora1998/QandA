@@ -23,7 +23,6 @@ app.use(bodyparser.json());
 app.use(methodOverride("_method"));
 
 app.use("/", userRoutes);
-app.use("/", categoryRoutes);
 app.use("/", questionRoutes);
 app.use("/", answerRoutes);
 

@@ -8,15 +8,18 @@ import { Router } from "@angular/router";
   styleUrls: ["./ask.component.css"]
 })
 export class AskComponent {
+  categoryChoose: any = "Choose a category...";
   constructor(private apiService: ApiserviceService, private router: Router) {}
 
-  askQuestion(category, question) {
+  askQuestion(question) {
     document.getElementsByTagName("small")[0].style.display = "inline";
-    this.apiService.askQuestion(category, question).subscribe(qAsked => {
-      console.log(qAsked);
-      setTimeout(() => {
-        this.router.navigate(["questions"]);
-      }, 1000);
-    });
+    this.apiService
+      .askQuestion(this.categoryChoose, question)
+      .subscribe(qAsked => {
+        console.log(qAsked);
+        setTimeout(() => {
+          this.router.navigate(["questions"]);
+        }, 1000);
+      });
   }
 }

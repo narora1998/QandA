@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute, Params } from "@angular/router";
+import { ActivatedRoute, Params, Router } from "@angular/router";
 import { ApiserviceService } from "../apiservice.service";
 
 @Component({
@@ -13,6 +13,7 @@ export class EditanswerComponent implements OnInit {
   answers: any;
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private apiService: ApiserviceService
   ) {
     console.log(this.route.snapshot);
@@ -43,6 +44,9 @@ export class EditanswerComponent implements OnInit {
       .updateAnswer(this.answers.data.answer, this.answers.data._id)
       .subscribe(() => {
         console.log("Answer Updated");
+        setTimeout(() => {
+          this.router.navigate(["questions"]);
+        }, 1000);
       });
   }
 }

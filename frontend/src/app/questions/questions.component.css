@@ -7,10 +7,6 @@ html {
   height: 100vh;
   overflow-x: scroll;
 
-  /* background: #8e0e00;
-  background: -webkit-linear-gradient(to right, #1f1c18, #8e0e00);
-  background: linear-gradient(to right, #1f1c18, #8e0e00); */
-
   /* background-image: linear-gradient(to top, #dfe9f3 0%, white 100%); */
   background: #232526; /* fallback for old browsers */
   background: -webkit-linear-gradient(
@@ -50,6 +46,7 @@ html {
 }
 .ask-question {
   width: 40rem;
+  margin: 0 auto;
 }
 
 .card-body {

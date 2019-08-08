@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs";
 
 @Injectable({
   providedIn: "root"
@@ -64,8 +65,14 @@ export class ApiserviceService {
     );
   }
 
-  updateAnswer(upAnswer, id) {
+  updateAnswer(upAnswer, id): Observable<void> {
     const obj = { upAnswer };
-    return this.http.put("http://localhost:8000/answer/" + id, obj);
+    return this.http.put<void>(`http://localhost:8000/answer/` + id, obj);
+  }
+
+  deleteAnswer(id): Observable<void> {
+    return this.http.delete<void>(
+      `http://localhost:8000/answer/` + id + `/delete`
+    );
   }
 }
