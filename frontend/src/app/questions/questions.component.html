@@ -33,22 +33,35 @@
     </div>
   </nav>
   <br />
-  <!-- <div class="select text-center">
-    <select style="width: 10%;padding: 5px">
-      <option selected disabled hidden>Category</option>
-      <option
-        name="Technology"
-        [(ngModel)]="Technology"
-        (click)="showContent(Technology)"
-        >Technology</option
-      >
-      <option name="Fashion" onclick="showContent()">Fashion</option>
-      <option name="Politics" onclick="showContent()">Politics</option>
-    </select>
-    <button class="btn-primary" style="border-radius:5px">Filter</button>
-  </div> -->
+
+  <div class="ask-question">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <label class="input-group-text">Read What Interests You!</label>
+      </div>
+      <select class="custom-select" name="filter" [(ngModel)]="filter">
+        <option>Fashion</option>
+        <option>Technology</option>
+        <option>Politics</option>
+      </select>
+      <!-- <div class="input-group-append">
+        <button
+          class="btn btn-outline-secondary btn-light input-group-text"
+          id="filterButton"
+          (click)="filterByCategory(category)"
+        >
+          Filter
+        </button>
+      </div> -->
+    </div>
+  </div>
+
   <div class="question-container" *ngFor="let qa of quesAnsArray">
-    <div class="card" style="width: 40rem;">
+    <div
+      class="card"
+      style="width: 40rem;"
+      *ngIf="qa.cName == filter || filter == 1"
+    >
       <div class="card-body">
         <h5 class="card-title text-white" style="margin: 0%">
           {{ qa.question }}
@@ -87,5 +100,3 @@
     </div>
   </div>
 </html>
-
-<!-- class="list-group-item" -->

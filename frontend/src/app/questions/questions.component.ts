@@ -9,6 +9,7 @@ import { TouchSequence } from "selenium-webdriver";
   styleUrls: ["./questions.component.css"]
 })
 export class QuestionsComponent implements OnInit {
+  filter: any = 1;
   ques: any;
   ans: any;
   quesAnsArray = [];
@@ -21,13 +22,15 @@ export class QuestionsComponent implements OnInit {
         var obj = {
           _id: this.ques.data[i]._id,
           question: this.ques.data[i].question,
-          answer: this.ques.data[i].answer
+          // answer: this.ques.data[i].answer,
+          cName: this.ques.data[i].cName
         };
         this.quesAnsArray.push(obj);
       }
-      console.log(this.quesAnsArray[0]._id);
+      console.log("We are here");
       console.log(qData);
       //console.log(this.quesAnsArray);
+      console.log(this.filter);
     });
 
     this.apiService.viewAllAnswers().subscribe(aData => {
@@ -54,4 +57,9 @@ export class QuestionsComponent implements OnInit {
   editAnswer(qId, aId) {
     this.router.navigate(["question", qId, "answer", aId, "edit"]);
   }
+
+  // filterByCategory(category) {
+  //   this.filter = category;
+  //   console.log(this.filter);
+  // }
 }

@@ -38,18 +38,18 @@ html {
       rgba(0, 0, 0, 0.25) 200%
     );
   background-blend-mode: multiply;
-  /* background-image: linear-gradient(to right, #d7d2cc 0%, #304352 100%); */
-  /* background: #8e0e00;
-  background: -webkit-linear-gradient(to right, #8e0e00, #1f1c18);
-  background: linear-gradient(to right, #8e0e00, #1f1c18); */
-
-  /* background: #c02425;
-  background: -webkit-linear-gradient(to right, #f0cb35, #c02425);
-  background: linear-gradient(to right, #f0cb35, #c02425); */
   margin: 0 auto;
   float: none;
   margin-bottom: 3%;
   border: 5px solid black;
+}
+
+.ask-question-container {
+  width: 100%;
+  text-align: center;
+}
+.ask-question {
+  width: 40rem;
 }
 
 .card-body {
