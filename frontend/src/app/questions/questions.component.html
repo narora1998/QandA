@@ -1,0 +1,91 @@
+<html>
+  <nav class="navbar navbar-expand-lg navbar-light" style="padding: 8px;">
+    <div
+      class="collapse navbar-collapse"
+      id="navbarSupportedContent"
+      style="border: 5px solid black;
+      margin:0%;border-radius: 10px"
+    >
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a
+            class="nav-link "
+            style="color: red"
+            href="http://localhost:4200/questions"
+            >Home</a
+          >
+        </li>
+
+        <li class="nav-item active">
+          <a
+            class="nav-link text-white"
+            href="http://localhost:4200/questions/new"
+            >Ask
+          </a>
+        </li>
+
+        <li class="nav-item active">
+          <a class="nav-link text-white" href="http://localhost:4200/answer"
+            >Answer
+          </a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav">
+        <li class="nav-item active form-inline">
+          <a class="nav-link text-white" href="#">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <br />
+  <!-- <div class="select text-center">
+    <select style="width: 10%;padding: 5px">
+      <option selected disabled hidden>Category</option>
+      <option
+        name="Technology"
+        [(ngModel)]="Technology"
+        (click)="showContent(Technology)"
+        >Technology</option
+      >
+      <option name="Fashion" onclick="showContent()">Fashion</option>
+      <option name="Politics" onclick="showContent()">Politics</option>
+    </select>
+    <button class="btn-primary" style="border-radius:5px">Filter</button>
+  </div> -->
+  <div class="question-container" *ngFor="let qa of quesAnsArray">
+    <div class="card " style="width: 40rem;">
+      <div class="card-body">
+        <h5 class="card-title text-white" style="margin: 0%">
+          {{ qa.question }}
+        </h5>
+      </div>
+      <hr class="hr" />
+      <ul
+        class="list-group list-group-flush"
+        *ngFor="let ans of answersArray"
+        style="list-style-type: none"
+      >
+        <li
+          *ngIf="qa._id == ans.questionId"
+          style="font-family: 'Courier New', Courier, monospace;border-bottom: 1px black solid;padding-left: 1%"
+          class="text-light"
+        >
+          {{ ans.answer }}
+          <!-- <hr class="li-hr" /> -->
+        </li>
+      </ul>
+      <div class="answer-here"></div>
+      <div class="card-body" style="text-align: center;">
+        <button
+          class="card-link btn btn-link"
+          (click)="navigateToAnswer(qa._id)"
+        >
+          Answer This Question
+        </button>
+      </div>
+    </div>
+  </div>
+</html>
+
+<!-- class="list-group-item" -->

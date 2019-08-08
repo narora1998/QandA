@@ -14,7 +14,7 @@ export class SigninComponent {
     this.apiService.loginUser(email, password).subscribe((token: any) => {
       console.log(token);
       localStorage.setItem("authToken", token.token);
-      this.router.navigate([`/home`]);
+      this.router.navigate([`/questions`]);
     });
   }
 }

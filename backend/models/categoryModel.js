@@ -1,6 +1,6 @@
 var mongoose = require("mongoose");
 
-var categorySchema = mongoose.Schema({
+var categorySchema = new mongoose.Schema({
   cName: {
     type: String,
     required: true

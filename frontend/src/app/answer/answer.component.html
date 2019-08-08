@@ -6,13 +6,17 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link text-primary" href="http://localhost:4200/home"
+          <a
+            class="nav-link text-primary"
+            href="http://localhost:4200/questions"
             >Home</a
           >
         </li>
 
         <li class="nav-item active">
-          <a class="nav-link text-primary" href="http://localhost:4200/ask"
+          <a
+            class="nav-link text-primary"
+            href="http://localhost:4200/questions/new"
             >Ask
           </a>
         </li>
@@ -30,4 +34,25 @@
     </div>
   </nav>
   <br />
+  <div class="question-answer-container">
+    <div class="question-container" *ngIf="questionDisplay">
+      <h2 class="form-control" style="font-weight: bold">
+        {{ questionDisplay.data.question }}
+      </h2>
+    </div>
+    <div class="form-group">
+      <textarea
+        name="answer"
+        [(ngModel)]="answer"
+        class="form-control"
+        rows="5"
+        placeholder="Answer Here..."
+      ></textarea>
+    </div>
+  </div>
+  <div class="form-group">
+    <button class="btn btn-primary" (click)="submitAnswer(answer)">
+      Submit
+    </button>
+  </div>
 </html>

@@ -6,13 +6,22 @@ import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { ApiserviceService } from "./apiservice.service";
 import { SignupComponent } from "./signup/signup.component";
-import { SigninComponent } from './signin/signin.component';
-import { HomeComponent } from './home/home.component';
-import { AskComponent } from './ask/ask.component';
-import { AnswerComponent } from './answer/answer.component';
+import { SigninComponent } from "./signin/signin.component";
+import { QuestionsComponent } from "./questions/questions.component";
+import { AskComponent } from "./ask/ask.component";
+import { AnswerComponent } from "./answer/answer.component";
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 @NgModule({
-  declarations: [AppComponent, SignupComponent, SigninComponent, HomeComponent, AskComponent, AnswerComponent],
+  declarations: [
+    AppComponent,
+    SignupComponent,
+    SigninComponent,
+    QuestionsComponent,
+    AskComponent,
+    AnswerComponent,
+    PagenotfoundComponent
+  ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [ApiserviceService],
   bootstrap: [AppComponent]

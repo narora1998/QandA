@@ -33,6 +33,25 @@ export class ApiserviceService {
       cName: category
     };
     console.log(obj);
-    this.http.post("http://localhost:8000/question", obj);
+    return this.http.post("http://localhost:8000/question", obj);
+  }
+
+  viewAllQuestions() {
+    return this.http.get("http://localhost:8000/question/view");
+  }
+
+  viewQuestionById(id) {
+    console.log(id.id);
+    return this.http.get("http://localhost:8000/question/" + id.id);
+  }
+
+  submitAnswer(answer, qId) {
+    console.log(answer);
+    const obj = { answer, qId };
+    return this.http.post("http://localhost:8000/answers", obj);
+  }
+
+  viewAllAnswers() {
+    return this.http.get("http://localhost:8000/answers/view");
   }
 }

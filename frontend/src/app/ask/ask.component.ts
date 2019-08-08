@@ -8,12 +8,9 @@ import { ApiserviceService } from "../apiservice.service";
 })
 export class AskComponent {
   constructor(private apiService: ApiserviceService) {}
-  category: any;
-  question: any;
 
   askQuestion(category, question) {
-    console.log(category);
-    console.log(question);
+    document.getElementsByTagName("small")[0].style.display = "inline";
     this.apiService.askQuestion(category, question).subscribe(qAsked => {
       console.log(qAsked);
     });

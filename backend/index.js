@@ -9,13 +9,14 @@ mongoose.connect("mongodb://localhost/qa", { useNewUrlParser: true });
 
 var userRoutes = require("./routes/userRoutes");
 var categoryRoutes = require("./routes/categoryRoutes");
-var qaRoutes = require("./routes/qaRoutes");
+var questionRoutes = require("./routes/questionRoutes");
+var answerRoutes = require("./routes/answerRoutes");
 var port = process.env.PORT || 8000;
 
 app.use(cors());
 app.use(
   bodyparser.urlencoded({
-    urlencoded: true
+    extended: true
   })
 );
 app.use(bodyparser.json());
@@ -23,7 +24,8 @@ app.use(methodOverride("_method"));
 
 app.use("/", userRoutes);
 app.use("/", categoryRoutes);
-app.use("/", qaRoutes);
+app.use("/", questionRoutes);
+app.use("/", answerRoutes);
 
 app.listen(port, () => {
   console.log("Running on PORT 8000");
