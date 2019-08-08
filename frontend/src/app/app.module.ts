@@ -11,6 +11,7 @@ import { QuestionsComponent } from "./questions/questions.component";
 import { AskComponent } from "./ask/ask.component";
 import { AnswerComponent } from "./answer/answer.component";
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { EditanswerComponent } from './editanswer/editanswer.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
     QuestionsComponent,
     AskComponent,
     AnswerComponent,
-    PagenotfoundComponent
+    PagenotfoundComponent,
+    EditanswerComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [ApiserviceService],

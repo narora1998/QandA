@@ -21,7 +21,8 @@ export class AnswerComponent implements OnInit {
       this.qId = params;
       console.log(params);
 
-      this.apiService.viewQuestionById(params).subscribe(qFetched => {
+      this.apiService.viewQuestionById(params.id).subscribe(qFetched => {
+        //
         console.log(qFetched);
 
         this.questionDisplay = qFetched;

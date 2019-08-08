@@ -18,12 +18,6 @@
             >Ask
           </a>
         </li>
-
-        <li class="nav-item active">
-          <a class="nav-link text-primary" href="http://localhost:4200/answer"
-            >Answer
-          </a>
-        </li>
       </ul>
 
       <ul class="navbar-nav">
@@ -36,15 +30,17 @@
   <br />
 
   <div class="ask-question">
-    <small id="chooseCategoryText">Choose a category and ask a question.</small>
-    <div class="form-group">
-      <select class="form-control" name="category" [(ngModel)]="category">
-        <option selected hidden disabled>Category</option>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <label class="input-group-text">Category</label>
+      </div>
+      <select class="custom-select" name="category" [(ngModel)]="category">
         <option>Fashion</option>
         <option>Technology</option>
         <option>Politics</option>
       </select>
     </div>
+
     <div class="form-group">
       <textarea
         name="question"

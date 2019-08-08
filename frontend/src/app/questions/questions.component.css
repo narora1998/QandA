@@ -7,9 +7,22 @@ html {
   height: 100vh;
   overflow-x: scroll;
 
-  background: #8e0e00;
+  /* background: #8e0e00;
   background: -webkit-linear-gradient(to right, #1f1c18, #8e0e00);
-  background: linear-gradient(to right, #1f1c18, #8e0e00);
+  background: linear-gradient(to right, #1f1c18, #8e0e00); */
+
+  /* background-image: linear-gradient(to top, #dfe9f3 0%, white 100%); */
+  background: #232526; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #414345,
+    #232526
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #414345,
+    #232526
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .nav {
@@ -18,9 +31,18 @@ html {
   background: linear-gradient(to right, #8e0e00, #1f1c18);
 }
 .card {
-  background: #8e0e00;
+  background: linear-gradient(to bottom, #323232 0%, #3f3f3f 40%, #1c1c1c 150%),
+    linear-gradient(
+      to top,
+      rgba(255, 255, 255, 0.4) 0%,
+      rgba(0, 0, 0, 0.25) 200%
+    );
+  background-blend-mode: multiply;
+  /* background-image: linear-gradient(to right, #d7d2cc 0%, #304352 100%); */
+  /* background: #8e0e00;
   background: -webkit-linear-gradient(to right, #8e0e00, #1f1c18);
-  background: linear-gradient(to right, #8e0e00, #1f1c18);
+  background: linear-gradient(to right, #8e0e00, #1f1c18); */
+
   /* background: #c02425;
   background: -webkit-linear-gradient(to right, #f0cb35, #c02425);
   background: linear-gradient(to right, #f0cb35, #c02425); */
@@ -37,16 +59,11 @@ html {
 .card-conatiner {
 }
 .hr {
-  margin: 0%;
+  margin: 0% 0% 1% 0%;
   background-color: black;
-  margin-bottom: 2%;
 }
 
 .li-hr {
   background-color: black;
   width: 100%;
-}
-
-li {
-  margin-bottom: 0%;
 }

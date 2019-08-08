@@ -27,4 +27,29 @@ router.get("/answers/view", function(req, res) {
   });
 });
 
+router.get("/answer/:id", function(req, res) {
+  Answers.findById(req.params.id, function(err, answer) {
+    if (err) res.send(err);
+    else {
+      res.json({ message: "Answer Displayed", data: answer });
+    }
+  });
+});
+
+router.put("/answer/:id", function(req, res) {
+  Answers.findByIdAndUpdate(
+    req.params.id,
+    {
+      answer: req.body.upAnswer
+    },
+    function(err, upAns) {
+      if (err) res.send(err);
+      else {
+        user.save();
+        res.json({ message: "Answer Updated" });
+      }
+    }
+  );
+});
+
 module.exports = router;

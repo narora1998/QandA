@@ -41,8 +41,8 @@ export class ApiserviceService {
   }
 
   viewQuestionById(id) {
-    console.log(id.id);
-    return this.http.get("http://localhost:8000/question/" + id.id);
+    console.log(id); //
+    return this.http.get("http://localhost:8000/question/" + id); //
   }
 
   submitAnswer(answer, qId) {
@@ -53,5 +53,19 @@ export class ApiserviceService {
 
   viewAllAnswers() {
     return this.http.get("http://localhost:8000/answers/view");
+  }
+
+  viewAnswerById(id) {
+    return this.http.get("http://localhost:8000/answer/" + id);
+  }
+  editAnswer(aId, qId) {
+    return this.http.get(
+      "http:localhost:8000/question/" + qId + "answer/" + aId + "/edit"
+    );
+  }
+
+  updateAnswer(upAnswer, id) {
+    const obj = { upAnswer };
+    return this.http.put("http://localhost:8000/answer/" + id, obj);
   }
 }

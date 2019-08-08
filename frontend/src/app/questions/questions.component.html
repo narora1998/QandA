@@ -23,12 +23,6 @@
             >Ask
           </a>
         </li>
-
-        <li class="nav-item active">
-          <a class="nav-link text-white" href="http://localhost:4200/answer"
-            >Answer
-          </a>
-        </li>
       </ul>
 
       <ul class="navbar-nav">
@@ -54,7 +48,7 @@
     <button class="btn-primary" style="border-radius:5px">Filter</button>
   </div> -->
   <div class="question-container" *ngFor="let qa of quesAnsArray">
-    <div class="card " style="width: 40rem;">
+    <div class="card" style="width: 40rem;">
       <div class="card-body">
         <h5 class="card-title text-white" style="margin: 0%">
           {{ qa.question }}
@@ -68,11 +62,17 @@
       >
         <li
           *ngIf="qa._id == ans.questionId"
-          style="font-family: 'Courier New', Courier, monospace;border-bottom: 1px black solid;padding-left: 1%"
+          style="font-family: 'Courier New', Courier, monospace;border: 1px black solid;border-radius:5px;margin:1%;padding: 1%"
           class="text-light"
         >
           {{ ans.answer }}
-          <!-- <hr class="li-hr" /> -->
+          <button
+            class="btn btn-link"
+            style="float: right;padding-bottom: 0;padding-top: 0;"
+            (click)="editAnswer(ans.questionId, ans._id)"
+          >
+            Edit<i class="far fa-edit"></i>
+          </button>
         </li>
       </ul>
       <div class="answer-here"></div>

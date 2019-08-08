@@ -50,4 +50,8 @@ export class QuestionsComponent implements OnInit {
   navigateToAnswer(qId) {
     this.router.navigate(["question", qId, "answer", "new"]);
   }
+
+  editAnswer(qId, aId) {
+    this.router.navigate(["question", qId, "answer", aId, "edit"]);
+  }
 }
