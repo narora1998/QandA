@@ -1,56 +1,69 @@
-<html>
-  <h1 class="text-center title">QandA</h1>
-  <div calss="outer-div">
-    <div class="form-container">
-      <div class="elements">
+<body>
+  <h1 id="welcome">Welcome To Q And A</h1>
+  <div class="form-div">
+    <form class="px-4 py-3" [formGroup]="signupForm">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Name</span>
+        </div>
         <input
+          formControlName="name"
           type="text"
-          name="name"
-          class="input"
-          placeholder="Name"
-          [(ngModel)]="name"
-          required
+          class="form-control"
+          placeholder="Full Name"
         />
-
-        <input
-          type="email"
-          name="email"
-          class="input"
-          placeholder="Email"
-          [(ngModel)]="email"
-          required
-        />
-
-        <input
-          type="password"
-          name="password"
-          class="input"
-          placeholder="Password"
-          [(ngModel)]="password"
-          required
-        />
-
-        <input
-          type="text"
-          name="mobile"
-          class="input"
-          placeholder="Mobile"
-          [(ngModel)]="mobile"
-          required
-        />
-        <br />
-        <button
-          type="button"
-          class="btn btn-primary input"
-          (click)="addUser(name, email, password, mobile)"
-        >
-          Sign Up
-        </button>
-        <p>
-          Already have an account?
-          <a href="http://localhost:4200/signin">Sign In</a>
-        </p>
       </div>
-    </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Email</span>
+        </div>
+        <input
+          formControlName="username"
+          type="email"
+          class="form-control"
+          placeholder="Email Address"
+        />
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Password</span>
+        </div>
+        <input
+          formControlName="password"
+          type="password"
+          class="form-control"
+          placeholder="Password"
+        />
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Password</span>
+        </div>
+        <input
+          formControlName="cpassword"
+          type="password"
+          class="form-control"
+          placeholder="Confirm Password"
+        />
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Mobile</span>
+        </div>
+        <input
+          formControlName="mobile"
+          type="text"
+          class="form-control"
+          placeholder="Mobile #"
+        />
+      </div>
+      <button type="button" class="btn btn-primary" (click)="signup()">
+        Sign Up
+      </button>
+      <p style="color: white;margin-bottom: 0;margin-top: 2%;">
+        Already a member ? <a [routerLink]="['/users/login']">Sign In</a>
+      </p>
+    </form>
   </div>
-</html>
+</body>

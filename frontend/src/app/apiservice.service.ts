@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs";
 
 @Injectable({
@@ -8,24 +8,17 @@ import { Observable } from "rxjs";
 export class ApiserviceService {
   constructor(private http: HttpClient) {}
 
-  addUser(name, email, password, mobile) {
-    const obj = {
-      name: name,
-      email: email,
-      password: password,
-      mobile: mobile
-    };
-
-    return this.http.post("http://localhost:8000/users", obj);
+  addUser(body: any) {
+    return this.http.post("http://localhost:8000/users", body, {
+      observe: "body"
+    });
   }
 
-  loginUser(email, password) {
-    const obj = {
-      email: email,
-      password: password
-    };
-
-    return this.http.post("http://localhost:8000/users/login", obj);
+  login(body) {
+    console.log(body);
+    return this.http.post("http://localhost:8000/users/login", body, {
+      observe: "body"
+    });
   }
 
   askQuestion(category, question) {
@@ -42,8 +35,8 @@ export class ApiserviceService {
   }
 
   viewQuestionById(id) {
-    console.log(id); //
-    return this.http.get("http://localhost:8000/question/" + id); //
+    console.log(id);
+    return this.http.get("http://localhost:8000/question/" + id);
   }
 
   submitAnswer(answer, qId) {

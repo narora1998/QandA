@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ApiserviceService } from "../apiservice.service";
 import { Router } from "@angular/router";
+import { FormGroup, FormControl, Validators } from "@angular/forms";
 
 @Component({
   selector: "app-signin",
@@ -8,13 +9,23 @@ import { Router } from "@angular/router";
   styleUrls: ["./signin.component.css"]
 })
 export class SigninComponent {
+  signinForm: FormGroup = new FormGroup({
+    username: new FormControl(null, [Validators.email, Validators.required]),
+    password: new FormControl(null, Validators.required)
+  });
   constructor(private apiService: ApiserviceService, private router: Router) {}
 
-  loginUser(email, password) {
-    this.apiService.loginUser(email, password).subscribe((token: any) => {
-      console.log(token);
-      localStorage.setItem("authToken", token.token);
-      this.router.navigate([`/questions`]);
+  login() {
+    if (!this.signinForm.valid) {
+      console.log("Form Invalid");
+      window.alert("Please Fill All Fields");
+      return;
+    }
+    console.log(this.signinForm.value);
+
+    this.apiService.login(this.signinForm.value).subscribe(status => {
+      console.log(status);
+      //this.router.navigate["/questions"];
     });
   }
 }

@@ -8,10 +8,10 @@ var questionSchema = new mongoose.Schema({
   cName: {
     type: String,
     required: true
+  },
+  answerId: {
+    type: []
   }
-  // answer: {
-  //   type: []
-  // }
 });
 
 module.exports = mongoose.model("questions", questionSchema);

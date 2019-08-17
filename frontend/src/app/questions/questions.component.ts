@@ -60,9 +60,11 @@ export class QuestionsComponent implements OnInit {
   deleteAnswer(aId) {
     this.apiService.deleteAnswer(aId).subscribe(() => {
       console.log(aId + "was deleted");
-
-      if (window.confirm("Are you sure you want to delete this answer?")) {
-      }
     });
+    if (
+      window.confirm("Are you sure you want to delete? This cannot be undone.")
+    ) {
+      window.location.reload();
+    }
   }
 }

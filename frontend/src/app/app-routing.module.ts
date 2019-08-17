@@ -13,12 +13,12 @@ const routes: Routes = [
   { path: "question/:qId/answer/:aId/edit", component: EditanswerComponent }, //
   { path: "question/:id", component: AnswerComponent },
   { path: "questions/new", component: AskComponent },
-  { path: "signup", component: SignupComponent },
-  { path: "signin", component: SigninComponent },
+  { path: "users/new", component: SignupComponent },
+  { path: "users/login", component: SigninComponent },
   { path: "questions", component: QuestionsComponent },
-  { path: "q1", component: QuestionsComponent },
+  // { path: "q1", component: QuestionsComponent },
   { path: "answer", component: AnswerComponent },
-  { path: "", redirectTo: "/signup", pathMatch: "full" },
+  { path: "", redirectTo: "/users/new", pathMatch: "full" },
   { path: "**", component: PagenotfoundComponent }
 ];
 

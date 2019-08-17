@@ -12,6 +12,7 @@ router.post("/question", function(req, res) {
   q.save(function(err, ques) {
     if (err) res.send(err);
     else {
+      ques.askedBy = req.user._id;
       res.json({ message: "Question Created" });
     }
   });
